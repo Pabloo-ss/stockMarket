@@ -1,0 +1,53 @@
+{% extends 'catalog/basePage.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% if user.is_autheticated %}
+
+<a href="{% url 'logOut' %}"> logOut </a>
+
+{% else %}
+
+<div class="logoContainer">
+    <div>
+        <img src="{% static 'catalog/iconoWeb.png' %}" alt="">
+    </div>
+    <div>
+        <h1>StockMarketX</h1>
+    </div>
+</div>
+<div class="formsContainer">
+    {% for message in messages %}
+        <div class="alert alert-info">{{message}}</div>
+    {% endfor %}
+    <div class="logInFormContainer">
+        <form method="POST" action="{% url 'logIn' %}">
+            {% csrf_token %}
+                <div class="form-group">
+                    <div id="userName">
+                        {{ form.username }}
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div id="password">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="buttonsContainer">
+                    <div id="register">
+                        <a class="btn btn-primary" href="{% url 'register' %}"> Don't have an account. </a>
+                    </div>
+                    <div id="logIn">
+                        <input class="btn btn-success" type="submit" value="LogIn">
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

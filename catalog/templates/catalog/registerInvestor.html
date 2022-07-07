@@ -1,0 +1,80 @@
+{% extends 'catalog/basePage.html' %}
+{% load static %}
+
+{% block content %}
+<div class="registerContainer">
+    <div class="logoContainer">
+        <div>
+            <img src="{% static 'catalog/iconoWeb.png' %}" alt="">
+        </div>
+        <div>
+            <h1>StockMarketX</h1>
+        </div>
+    </div>
+    <div class="formsContainer">
+        <div class="registerFormContainer">
+            <form method="POST" action="{% url 'registerInvestor' %}" autocomplete="false">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div id="userName">
+                        {{ form.username }}
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="password">
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="password2">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="invName">
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="invAddress">
+                            {{ form.address }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="invPhone">
+                            {{ form.phoneNumber }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="invIdNum">
+                            {{ form.IDNum }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="invWallet">
+                            {{ form.wallet }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-lg btn-block" type="submit" name="save"> Register New Investor</button>
+                </div> 
+            </form>
+        </div>
+        
+        <div class="buttonsContainer">
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'logIn' %}"> Have an account, logIn. </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

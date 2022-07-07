@@ -1,0 +1,25 @@
+{% extends 'catalog/basePage.html' %}
+{% load static %}
+
+{% block content %}
+<div class="logoContainer">
+    <div>
+        <img src="{% static 'catalog/iconoWeb.png' %}" alt="">
+    </div>
+    <div>
+        <h1>StockMarketX</h1>
+    </div>
+</div>
+<div class="registerButtonsContainer">
+    <div class="registerButtons">
+        <a class="btn btn-dark btn-lg btn-block" href="{% url 'registerEnterprise' %}"> I'm an enterprise. </a>   
+    
+        <a class="btn btn-dark btn-lg btn-block" href="{% url 'registerInvestor' %}"> I'm an investor. </a>
+    </div>
+</div>
+
+<div class="buttonsContainer">
+    <a class="btn btn-primary" href="{% url 'logIn' %}"> LogIn. </a>
+</div>
+
+{% endblock %}

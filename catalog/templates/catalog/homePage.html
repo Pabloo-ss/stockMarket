@@ -1,0 +1,15 @@
+{% extends 'catalog/basePage.html' %}
+
+{% block header %}
+<h1> This will be the header of all the pages</h1>
+{% endblock %}
+
+{% block content %}
+
+Form page, research about how to make a register and login form for the users
+<form method="post" action="/create/">
+    {{form}}
+    <button type="submit" name="save"> Register New User</button>
+</form>
+
+{% endblock %}

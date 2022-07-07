@@ -1,0 +1,301 @@
+<style>
+    body{
+        background-color: rgb(255, 255, 255);
+        display: flexbox;
+    }
+
+    .page-container{
+        margin: 0 auto;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content-container,
+    .header-container{
+        max-width: 98%;
+        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 3px;
+    }
+
+    .header-container{
+        background-color: aquamarine;
+    }
+
+    .content-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logoContainer {
+        margin-top: 80px;
+        padding: 15px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formsContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content-container .buttonsContainer {
+        padding: 20px 45px;
+        display: flex;
+    }
+    .content-container .buttonsContainer #logIn{
+        padding-left: 20px;
+    }
+
+    .logInFormContainer {
+        padding: 15px 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .enterpriseContent .stocksContainer table{
+        width: 100%;
+        border-collapse: collapse;
+        }
+
+        /* Zebra striping */
+        tr:nth-of-type(odd) { 
+            background: #eee; 
+            }
+        
+        th:last-child, td:last-child{
+            text-align: right;
+        }
+        th:first-child, td:first-child{
+            text-align: left;
+        }
+
+        th:nth-child(2), td:nth-child(2){
+            text-align: center;
+        }
+
+        th { 
+            background: rgb(209, 54, 54); 
+            color: white; 
+            font-weight: bold; 
+            position: sticky;
+            top: 0;
+            }
+        td, th { 
+            padding: 15px; 
+            border-bottom: 1px solid #ddd;
+            text-align: center; 
+            font-size: 18px;
+    }
+
+    .enterpriseContent{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .enterpriseContent .stocksContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        column-gap: 100px;
+    }
+
+    .enterpriseContent .stocksContainer .stocksWalletContainer {
+        flex: 3;
+        width: 100%;
+    }
+
+    .enterpriseContent .stocksContainer .stocksWalletContainer .tableContainer{
+        overflow: auto;
+        max-height: 435px;
+    }
+
+    .enterpriseContent .stocksContainer .emitContainer{
+        /*padding-right: 80px;
+        border:2px solid black;*/
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .enterpriseContent .stocksContainer .emitContainer h4{
+        padding-left: 10px;
+        height: 4px;
+        margin-top:50px;
+
+        --padding-right: 50px;
+        --margin-left:0px;
+        --background:rgb(255, 110, 110);
+    }
+
+    .enterpriseContent .stocksContainer .emitContainer .formsContainer {
+        padding: 30px;
+        padding-left: 0px;
+        
+    }
+    .enterpriseContent .stocksContainer .emitContainer .formsContainer .form-group {
+        padding-left: 10px;
+    }
+
+    .enterpriseContent .stocksContainer .emitContainer .formsContainer form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        --flex-direction: column;
+    }
+
+    .enterpriseContent .sellFormContainer .formsContainer{
+        align-items: flex-start;
+    }
+
+    .enterpriseContent .sellFormContainer .formsContainer form {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .enterpriseContent .sellFormContainer .formsContainer form .form-group2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .investorContent{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .registerButtonsContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    .registerContainer{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .registerContainer .logoContainer {
+        justify-content: flex-start;
+    }
+
+    .registerContainer .buttonsContainer {
+        padding: 0px;
+        width: 50%;
+        margin-left: 10%;
+    }
+
+    .registerFormContainer {
+        margin-left: 10%;
+        padding: 100px;
+        padding-bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .registerFormContainer .form-group{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .registerButtons{
+        width: 50%;
+        padding: 10px;
+    }
+
+    .buttonsContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .returnToLogIn{
+        width: 50%;
+        padding: 10px;
+    }
+
+    /*NAVBAR CSS*/
+    .navbar {
+        display: flex;
+        /*Make navbar sticky so it always stays on top*/
+        position: sticky; 
+        justify-content: left;
+        align-items: center;
+        /*make it highlighted when displayed the mouse over*/
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+    }
+    
+    .nav-list {
+        height:50%;
+        width: 50%;
+        /*display: flex;*/
+        display: contents;
+    }
+    
+    .nav-list li {
+        list-style: none;
+        /*Height and location of navbar elements*/
+        padding: 0px 10px;
+    }
+    
+    .nav-list li a {
+        text-decoration: none;
+        /*Color of the text*/
+        color: rgb(0, 0, 0);
+    }
+    
+    .nav-list li a:hover {
+        color: rgb(255, 255, 255);
+    }
+    
+    .rightNav {
+        position: absolute;
+        right: 30px;
+        height: -1px;
+    }
+
+    .rightNav a {
+        text-decoration: none;
+        /*Color of the text*/
+        color: rgb(0, 0, 0);
+    }
+    
+    .background {
+        background: rgb(209, 54, 54);
+    }
+
+    .numVisits{
+        margin-top: 100px;
+        position: fixed;
+        bottom: 0;
+        right: 20px;
+    }
+
+    .wallet{
+        margin-top: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 20px;
+    }
+
+</style>
+    

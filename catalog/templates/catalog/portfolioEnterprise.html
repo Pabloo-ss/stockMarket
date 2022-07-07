@@ -1,0 +1,101 @@
+{% extends 'catalog/homeLogEnterprise.html' %}
+{% load static %}
+
+{% block content %}
+    
+    <div class="enterpriseContent">
+        <br>
+        <div class="stocksContainer">
+            <div class="stocksWalletContainer">
+                <h1>Portfolio</h1>
+                <div class="tableContainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Enterprise </th>
+                                <th>Cuantity </th>
+                                <th>Average Market price</th>
+                                <th>Allocation %</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for a,b,c,d in stocksShow %}
+                            <tr>
+                            <td>{{ b }}</td>
+                            <td>{{ a.cuantity }}</td>
+                            <td>{{ c }}</td>
+                            <td>{{ d }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+        
+                        </table>
+                </div>
+            </div>
+            <div class="emitContainer">
+                <h4>{{enterprise.companyName}}'s stock announcement</h4>
+                <div class="formsContainer">
+                    <form method="POST" action="{% url 'emit' userId %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ emitForm.amount }}
+                        </div>
+                        {% comment %} {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %} 
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %} {% endcomment %}
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" value="Emit new stocks">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sellFormContainer">
+            <!--Sell Order-->
+            <h2>Sell Order</h2>
+            <div class="formsContainer">
+                <form method="POST" action="{% url 'sellE' userId %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-group2">
+                            {{sellForm.enterprise}}
+                        </div>
+                        <div class="form-group2">
+                            {{sellForm.cuantity}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group2">
+                            {{sellForm.price}}
+                        </div>
+                        <div class="form-group2">
+                            <div id="button">
+                                <input class="btn btn-success btn-lg btn-block" type="submit" value="Sell">
+                            </div>
+                        </div>
+                    </div>
+                </form> 
+                {% for message in messages %}
+                    <div class="alert alert-info">{{message}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="numVisits">
+            <h4>Visits: {{numVisits}}</h4>
+        </div>
+
+        <div class="wallet">
+            <h4>Wallet: {{enterprise.wallet}}</h4>
+        </div> 
+           
+    </div>
+
+{% endblock %}

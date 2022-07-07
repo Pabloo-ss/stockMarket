@@ -1,0 +1,79 @@
+{% extends 'catalog/basePage.html' %}
+{% load static %}
+
+{% block content %}
+<div class="registerContainer">
+    <div class="logoContainer">
+        <div>
+            <img src="{% static 'catalog/iconoWeb.png' %}" alt="">
+        </div>
+        <div>
+            <h1>StockMarketX</h1>
+        </div>
+    </div>
+    <div class="formsContainer">
+        <div class="registerFormContainer">
+            <form method="POST" action="{% url 'registerEnterprise' %}" autocomplete="false">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div id="userName">
+                        {{ form.username }}
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="password">
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="password2">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="entName">
+                        {{ form.Name }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="entAddress">
+                            {{ form.Address }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="entPhone">
+                            {{ form.Phone }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div id="entFunds">
+                            {{ form.wallet }}
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div id="entInterest">
+                            {{ form.interest }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-lg btn-block" type="submit" name="save"> Register New Enterprise</button>
+                </div> 
+            </form>
+        </div>
+        
+        <div class="buttonsContainer">
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'logIn' %}"> Have an account, logIn. </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

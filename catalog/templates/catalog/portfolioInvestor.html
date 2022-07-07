@@ -1,0 +1,42 @@
+{% extends 'catalog/homeLogInvestor.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="investorContent">
+            <h1>Portfolio</h1>
+            <table>
+            <tr>
+                <th>Enterprise </th>
+                <th>Cuantity </th>
+                <th>Average Market price</th>
+                <th>Allocation %</th>
+            </tr>
+            {% for a,b,c,d in stocksShow %}
+                <tr>
+                <td>{{ b }}</td>
+                <td>{{ a.cuantity }}</td>
+                <td>{{ c }}</td>
+                <td>{{ d }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+
+            <!--Sell Order-->
+            <br>
+            <h2>Sell Order</h2>
+            <form method="POST" action="{% url 'sellI' userId %}">
+                {% csrf_token %}
+                {{sellForm}}
+                <button type="submit" name="save">Sell</button>
+            </form> 
+
+            <div class="numVisits">
+                <h4>Visits: {{numVisits}}</h4>
+            </div>
+
+            <div class="wallet">
+                <h4>Wallet: {{investor.wallet}}</h4>
+            </div>
+
+        </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'catalog/homeLogEnterprise.html' %}
+{% load static %}
+
+{% block content %}
+    <body>
+        <div class="enterpriseContent">
+            <h1>Market</h1>
+            <table>
+            <tr>
+                <th>Enterprise </th>
+                <th>Cuantity </th>
+                <th>Price </th>
+            </tr>
+            {% for c,d in historyShow %}
+                <tr>
+                <td>{{ d }}</td>
+                <td>{{ c.cuantity }}</td>
+                <td>{{ c.price }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            
+            <!--Buy Order-->
+            <h2>Buy Order</h2>
+            
+            <form method="POST" action="{% url 'buyE' userId %}">
+                {% csrf_token %}
+                {{buyForm}}
+                <button type="submit" name="save">Buy</button>
+            </form> 
+            <div class="numVisits">
+                <h4>Visits: {{numVisits}}</h4>
+            </div>
+            <div class="wallet">
+                <h4>Wallet: {{enterprise.wallet}}</h4>
+            </div>
+        </div>
+    </body>
+{% endblock %}

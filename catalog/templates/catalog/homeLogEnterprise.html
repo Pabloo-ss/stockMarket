@@ -1,0 +1,17 @@
+{% extends 'catalog/basePage.html' %}
+
+{% block header %}
+    <!--In this html we have the navBar for logged users-->
+    <head>
+        <nav class="navbar background">
+            <ul class="nav-list">
+                <li>{{enterprise.companyName}}</li>
+                <li><a href="/catalog/enterpriseView/{{enterprise.user.idUser}}" > Portfolio </a></li>
+                <li><a href="/catalog/enterpriseMarketView/{{enterprise.user.idUser}}"> Market </a></li>
+            </ul>
+            <div class="rightNav">
+                <a href="{% url 'logOutUser' %}"> Sign Out </a>
+            </div>
+        </nav>
+    </head>
+{% endblock %}
